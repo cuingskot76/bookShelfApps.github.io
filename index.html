@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bookshelf Apps</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="max-width">
+        <nav>
+            <div class="tittle">
+                <div class="tittle-home">
+                    <i class="ri-book-open-line icon"></i>
+                    <h1 class="head_bar__title">Bookshelf Apps</h1>
+                </div>
+                <i class="ri-user-line icon user-icon toggle-btn"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="jumbotron-img"></div>
+
+    <main class="max-width">
+        <div class="md-container">
+            <div class="md-jumbotron">
+                <div class="content">
+                    <div class="content-container">
+                        <figure>
+                            <div class="figure-img">
+                                <img src="img/avataaars.svg" alt="">
+                            </div>
+                            <figcaption>
+                                <h3>Afrizal Setya Pamuji</h3>
+                                <p>Student | Front-end Developer</p>
+                            </figcaption>
+                        </figure>
+                        <div class="jumlah-buku">
+                            <li>
+                                <h3>Jumlah buku <br><span id="jumlah_buku"></span></h3>
+                            </li>
+                            <li>
+                                <h3>Buku belum selesai dibaca <br><span id="belum-selesai"></span></h3>
+                            </li>
+                            <li>
+                                <h3>Buku sudah selesai dibaca <br><span id="sudah-selesai"></span></h3>
+                            </li>
+                        </div>
+                        <div class="close-btn">
+                            <i class="ri-close-fill icon close"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md-main">
+                <section class="input_section">
+                    <div class="main-tittle">
+                        <h1>Bookshelf Apps</h1>
+                        <p>Aplikasi yang berguna untuk mempermudah dalam mengelola buku <br><a
+                                href="#inputBookTitle"><span class="coba">Coba sekarang!</span></a>
+                        </p>
+                    </div>
+                    <div class="input_tittle">
+                        <h2>Masukkan buku yang akan dibaca</h2>
+                    </div>
+                    <form id="inputBook">
+                        <div class="input">
+                            <label for="inputBookTitle">Judul</label>
+                            <input id="inputBookTitle" type="text" required placeholder="Judul buku">
+                        </div>
+                        <div class="input">
+                            <label for="inputBookAuthor">Penulis</label>
+                            <input id="inputBookAuthor" type="text" required placeholder="Penulis buku">
+                        </div>
+                        <div class="input">
+                            <label for="inputBookYear">Tahun</label>
+                            <input id="inputBookYear" type="number" required placeholder="Tahun terbit buku">
+                        </div>
+                        <div class="input_inline">
+                            <div class="selesai-dibaca">
+                                <label for="inputBookIsComplete" class="pointer">Selesai dibaca</label>
+                                <input id="inputBookIsComplete" type="checkbox">
+                            </div>
+                            <button id="bookSubmit" type="submit"> + Tambah buku</button>
+                        </div>
+                    </form>
+                </section>
+
+                <div class="form-pencarian">
+                    <i class="ri-search-2-line icon search-icon"></i>
+                    <input for="pencarian" type="text" id="pencarian" placeholder="Cari judul buku" />
+                </div>
+                <section id="itemBooks">
+                    <section class="book_shelf">
+                        <div class="book_shelf_head">
+                            <h2>Belum selesai dibaca</h2>
+                        </div>
+                        <div class="book_shelf_content">
+                            <div id="incompleteBookshelfList" class="book_list"></div>
+                        </div>
+                    </section>
+
+                    <section class="book_shelf">
+                        <div class="book_shelf_head">
+                            <h2>Selesai dibaca</h2>
+                        </div>
+                        <div class="book_shelf_content">
+                            <div id="completeBookshelfList" class="book_list"></div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="max-width">
+        <div class="footer-content">
+            <p>Photo by <a
+                    href="https://unsplash.com/@proxyclick?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Proxyclick
+                    Visitor Management System </a>on <a
+                    href="https://unsplash.com/s/photos/book?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash
+                </a>
+            </p>
+            <p>Avatars from <a href="https://getavataaars.com/">getavataaars</a></p>
+            <p>Icon from <a href="https://remixicon.com/">remixicon</a></p>
+            <h3 class="footer">Created with <i class="ri-heart-fill heart"></i> by
+                <a href="https://cuingskot76.github.io/portfolioV2.github.io/">
+                    afrizal setya pamuji</a>
+            </h3>
+        </div>
+    </footer>
+    <script src="storage.js"></script>
+    <script src="script.js"></script>
+    <script src="dom.js"></script>
+</body>
+
+</html>
