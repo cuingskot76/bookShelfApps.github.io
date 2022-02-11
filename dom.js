@@ -43,7 +43,7 @@ function addBooks() {
 }
 
 function makeBooks(tittle, writer, year, isCompleted) {
-    const textTitle = document.createElement("h2");
+    const textTitle = document.createElement("h3");
     textTitle.innerText = tittle;
 
     const textWriter = document.createElement("p");
@@ -81,7 +81,7 @@ function createButton(buttonTypeClass, evenListener, textButton) {
 }
 
 function taskToCompleted(taskElement) {
-    const taskTittle = taskElement.querySelector(".book_item h2").innerText;
+    const taskTittle = taskElement.querySelector(".book_item h3").innerText;
     const taskWritter = taskElement.querySelector(".book_item p.writer").innerText;
     const taskYear = taskElement.querySelector(".book_item p.year").innerText;
 
@@ -113,7 +113,7 @@ function createdFinishButton() {
 function removeButton(taskEl) {
     const indexBuku = findBooksIndex(taskEl[booksId]);
     const bookStatus = book[indexBuku].isCompleted;
-    const valueTittle = taskEl.querySelector(".book_item h2").innerText;
+    const valueTittle = taskEl.querySelector(".book_item h3").innerText;
     const confirmation = confirm("Apakah anda ingin menghapus buku dengan judul " + valueTittle);
 
     if (confirmation) {
@@ -153,7 +153,7 @@ function createdUndoButton() {
 }
 
 function undoBookFromCompleted(taskEl) {
-    const taskTittle = taskEl.querySelector(".book_item h2").innerText;
+    const taskTittle = taskEl.querySelector(".book_item h3").innerText;
     const taskWritter = taskEl.querySelector(".book_item p.writer").innerText;
     const taskYear = taskEl.querySelector(".book_item p.year").innerText;
 
@@ -180,15 +180,21 @@ filterInput.addEventListener("keyup", filterBooks);
 function filterBooks(e) {
     const text = e.target.value.toLowerCase();
     const bookItems = document.querySelectorAll(".book_item");
+    const error = document.querySelector("#error");
 
-    bookItems.forEach((book) => {
-        const itemText = book.textContent.toLowerCase();
+    if (bookItems) {
+        error.setAttribute("style", "display: block");
 
-        if (itemText.indexOf(text) !== -1) {
-            book.setAttribute("style", "display: inherit");
-        } else {
-            book.setAttribute("style", "display: none !important");
-        }
-    });
+        bookItems.forEach((book) => {
+            const itemText = book.textContent.toLowerCase();
+
+            if (itemText.indexOf(text) !== -1) {
+                book.setAttribute("style", "display: inherit");
+                error.setAttribute("style", "display: none");
+            } else {
+                book.setAttribute("style", "display: none !important");
+            }
+        })
+    }
     updateDataToStorage();
 }

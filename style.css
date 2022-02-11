@@ -14,6 +14,10 @@ body {
     background-color: var(--background-color);
 }
 
+h2 {
+    font-size: 1.3rem;
+}
+
 :root {
     --first-color: #A6B1E1;
     --second-color: #DCD6F7;
@@ -205,7 +209,9 @@ input:focus {
 #itemBooks {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
+
 
 /* * form input */
 input {
@@ -318,6 +324,15 @@ input {
 
 .footer a:hover {
     color: var(--first-color);
+}
+
+#error {
+    display: none;
+}
+
+#error .error-content {
+    display: flex;
+    justify-content: center;
 }
 
 /* ! 768px */
@@ -607,8 +622,8 @@ input {
     }
 
     #itemBooks {
+        position: relative;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         width: 100%;
         gap: 20px;
