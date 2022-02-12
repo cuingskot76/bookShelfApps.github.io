@@ -264,10 +264,10 @@ input {
 }
 
 .coba {
-    color: var(--input-color);
+    color: var(--third-color);
     padding: 10px;
-    background-color: var(--third-color);
-    border: none;
+    background-color: var(--background-color);
+    border: 2px solid var(--third-color);
     cursor: pointer;
     border-radius: 5px;
     transition: all .3s ease-out;
@@ -278,7 +278,8 @@ input {
 }
 
 .coba:hover {
-    background-color: var(--fourth-color);
+    background-color: var(--third-color);
+    color: white;
 }
 
 /* * footer */

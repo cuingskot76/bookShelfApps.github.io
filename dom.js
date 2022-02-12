@@ -114,21 +114,61 @@ function removeButton(taskEl) {
     const indexBuku = findBooksIndex(taskEl[booksId]);
     const bookStatus = book[indexBuku].isCompleted;
     const valueTittle = taskEl.querySelector(".book_item h3").innerText;
-    const confirmation = confirm("Apakah anda ingin menghapus buku dengan judul " + valueTittle);
+    // const confirmation = confirm("Apakah anda ingin menghapus buku dengan judul " + valueTittle);
 
-    if (confirmation) {
-        if (bookStatus) {
-            sudahSelesaiCount--;
-        } else {
-            belumSelesaiCount--;
-        }
-        book.splice(indexBuku, 1);
-        taskEl.remove();
-        jumlahBuku();
-        updateDataToStorage();
-    }
+    // if (confirmation) {
+    //     if (bookStatus) {
+    //         sudahSelesaiCount--;
+    //     } else {
+    //         belumSelesaiCount--;
+    //     }
+    //     taskEl.remove();
+    //     jumlahBuku();
+    //     updateDataToStorage();
+    // }
 
+    // ! menggunakan library
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+    })
+    const confirmation =
+        Swal.fire({
+            title: 'Yakin nih mau dihapus?',
+            text: "Buku yang telah dihapus tidak dapat dikembalikan lagi",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus buku'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Buku berhasil dihapus',
+                    'success'
+                )
+                if (bookStatus) {
+                    sudahSelesaiCount--;
+                } else {
+                    belumSelesaiCount--;
+                }
+                book.splice(indexBuku, 1);
+                taskEl.remove();
+                jumlahBuku();
+                updateDataToStorage();
+            } else {
+                swalWithBootstrapButtons.fire(
+                    'Dibatalkan',
+                    'Nah gitu dong :)',
+                    'error'
+                )
+            }
+        })
 }
+
 
 function jumlahBuku() {
     const totalbook = document.getElementById("jumlah_buku");
